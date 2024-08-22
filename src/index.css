@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .text-stroke {
+      -webkit-text-stroke: 1px ; /* Grosor y color del trazo */
+      color: transparent; /* Hace que el relleno del texto sea transparente */
+    }
+  }
