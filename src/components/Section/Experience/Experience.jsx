@@ -1,3 +1,5 @@
+
+import useScrollVisibilitySection from "../../../hook/ScrollSection";
 import Timeline from "./Timeline/Timeline"
 
 
@@ -6,7 +8,7 @@ const experiences = [
     title: 'Frontend',
     date: 'Enero 2024 - Actualmente',
     description: 'Tecnologías Informáticas ROOTS',
-    link: '#',
+    link: 'https://drive.google.com/uc?export=download&id=13z0LYWZCu0Jz_IPSYVJeQiKi8El4AUId',
   },
   {
     title: 'Freelancer',
@@ -14,10 +16,16 @@ const experiences = [
     description: 'Distribuidora de bebidas Briana',
   },
   ];
-const Experience = (props) => {
+const Experience = () => {
+  const isVisible = useScrollVisibilitySection('experience-section', 100);
+
+
     return (
-        <div>
-            <h1 className=" text-[40px] font-semibold  text-center my-[40px] text-black text-opacity-65  dark:text-white dark:text-opacity-55    ">Experiencia</h1>
+        <div 
+        id="experience-section"
+        className={`transition-opacity duration-500  ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
+            <h1 className=" text-[45px] sm:text-[50px] font-semibold  text-center my-[40px]   text-white text-opacity-55 sm:pt-20 ">Experiencia</h1>
             <Timeline experiences={experiences}/>
             
         </div>

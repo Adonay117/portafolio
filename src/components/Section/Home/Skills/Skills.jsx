@@ -10,8 +10,10 @@ const Skills = () => {
 
     return (
         <div>
-            <h2 className="dark:text-white dark:text-opacity-55 text-black text-opacity-65 font-semibold text-[30px] sm:text-[40px] text-center mb-10 md:mb-[70px]">Habilidades</h2>
-            <div className='flex gap-3 flex-wrap justify-center items-center'>
+            <h2 className=" animate-slideIn text-white text-opacity-55  font-semibold text-[30px] sm:text-[45px] text-center mb-10 md:mb-[70px]">
+                Habilidades
+            </h2>
+            <div className=' animate-slideIn flex gap-3 flex-wrap justify-center items-center'>
                 {[
                     { src: Js, color: '#f0db4f', name: 'Javascript' },
                     { src: TypeScript, color: '#3178C6', name: 'Typescript' },
@@ -25,7 +27,7 @@ const Skills = () => {
                         <div
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            className='group bg-[#e6e5e5] dark:bg-[#26282C] p-5 rounded-full flex items-center justify-center overflow-hidden w-20 h-20 sm:h-24 sm:w-24 shadow-xl'
+                            className='group  bg-[#26282C] p-5 rounded-full flex items-center justify-center overflow-hidden w-20 h-20 sm:h-24 sm:w-24 shadow-xl'
                             
                         >
                             <img

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { CiDark, CiLight } from "react-icons/ci";
+import LightIcon from '../Icons/LightIcon';
+import DarkIcon from '../Icons/DarkIcon';
 const BtnDarkLigth = () => {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -14,10 +15,11 @@ const BtnDarkLigth = () => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className={`py-2 rounded dark:text-white text-black
+      className={`py-4  rounded dark:text-[#B8BCB7]
       }`}
     >
-      {darkMode == false ?  <CiLight /> :<CiDark/>}
+      {darkMode == false ?  <LightIcon  className=" visible sm:hidden w-6 sm:w-5" /> :<DarkIcon className="  w-6 sm:w-5" />
+      }
     </button>
     
   );

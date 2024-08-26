@@ -1,29 +1,40 @@
 import React from 'react';
+import useScrollVisibilitySection from '../../../../hook/ScrollSection';
 
 const Timeline = ({ experiences }) => {
+  // Use the hook for each item and store their visibility states
+  const visibilityStates = experiences.map((_, index) =>
+    useScrollVisibilitySection(`exp${index}`, 200)
+  );
+
   return (
-    <div className=' flex flex-col items-center'>
-      <ol className="relative flex flex-col justify-center items-center border-l border-gray-300 dark:border-gray-700">
+    <div className='flex flex-col items-center'>
+      <ol className="relative flex flex-col justify-center items-center border-l border-gray-700">
         {experiences.map((exp, index) => (
-          <li key={index} className="mb-10 ml-6">
-            <div className="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-300">
+          <li
+            key={index}
+            id={`exp${index}`}
+            className={`mb-10 ml-6 transition-opacity duration-1000 ease-in-out ${visibilityStates[index] ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <div className="absolute w-3 h-3  rounded-full mt-1.5 -left-1.5 border border-gray-900 bg-gray-700"></div>
+            <time className="mb-1 text-lg font-normal leading-none text-gray-300">
               {exp.date}
             </time>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <p className="text-[40px] font-semibold  text-white">
               {exp.title}
-            </h3>
-            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+            </p>
+            <p className="mb-4 text-[35px] font-normal  text-gray-400">
               {exp.description}
             </p>
             {exp.link && (
               <a
                 href={exp.link}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                download='AdonayAragonCv.pdf'
+                className="inline-flex animate-bounce hover:animate-none items-center px-4 py-2 text-sm font-medium  focus:z-10 focus:ring-4 focus:outline-none bg-gray-800  border-gray-600 text hover:text-white bg-gradient-to-l from-indigo-500  to-violet-500 focus:ring-white text-white"
               >
                 Descargar CV
                 <svg
-                  className="w-3 h-3 ml-2 rtl:rotate-180"
+                  className="w-3 h-3 ml-2 rtl:rotate-180 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -42,7 +53,6 @@ const Timeline = ({ experiences }) => {
           </li>
         ))}
       </ol>
-
     </div>
   );
 };

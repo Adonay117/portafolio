@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import BtnDarkLigth from "../ModeDark/BtnDarkLight";
-import { FaHome } from "react-icons/fa";
-import { MdOutlineWork } from "react-icons/md";
-import { BsBackpack2Fill, BsFillBriefcaseFill, BsFillHouseFill } from "react-icons/bs";
+import HomeIcon from '../Icons/HomeIcon';
+import JobIcon from '../Icons/JobIcon';
+import ExpIcon from '../Icons/ExpIcon';
 
 const Navbar = () => {
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('inicio');
 
     const handleScroll = () => {
         const sections = document.querySelectorAll('section');
-        let currentSection = '';
+        let currentSection = 'inicio'; // Cambia a 'inicio' por defecto
 
         sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 3) {
+            const sectionTop = section.offsetTop - 100; // Ajusta el valor para mejorar la detección
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                 currentSection = section.getAttribute('id');
             }
         });
@@ -22,6 +23,7 @@ const Navbar = () => {
     };
 
     useEffect(() => {
+        handleScroll(); // Verifica la sección activa al cargar la página
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -29,56 +31,64 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="sm:sticky sm:top-0 z-50 fixed bottom-0 left-0 right-0">
+        <nav className=" animate-rebound sm:sticky sm:top-0 z-50 fixed bottom-0 left-0 right-0">
             <div className="flex justify-center gap-2 pt-3">
-                <ul className="flex justify-center transition ease-in duration-500 items-center gap-10 sm:gap-4 bg-[#D9D9D9] dark:bg-[#26282C] dark:text-[#B8BCB7] w-full sm:w-96 sm:rounded-full h-[50px] sm:h-[40px]">
+                <ul className="flex justify-center items-center gap-10 sm:gap-6 bg-[#26282C] text-[#B8BCB7] w-full sm:w-[400px] sm:rounded-full h-[50px] sm:h-[55px]">
                     <li>
                         <a
                             href="#inicio"
-                            className={activeSection === 'inicio' ? 'text-blue-500' : ''}
+                            className={activeSection === 'inicio' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
                             <span className="sm:hidden text-[30px]">
-                            <BsFillHouseFill />
+                                <HomeIcon className='w-6' />
                             </span>
                             <span className="hidden sm:inline">
-                              Inicio
+                                Inicio
                             </span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="#experiencia"
-                            className={activeSection === 'experiencia' ? 'text-blue-500' : ''}
+                            className={activeSection === 'experiencia' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
-                           <span className="sm:hidden text-[30px]">
-                           <BsBackpack2Fill />
+                            <span className="sm:hidden text-[30px]">
+                                <ExpIcon className='w-6' />
                             </span>
                             <span className="hidden sm:inline">
-                              Experiencia
+                                Experiencia
                             </span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="#proyectos"
-                            className={activeSection === 'proyectos' ? 'text-blue-500' : ''}
+                            className={activeSection === 'proyectos' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
                             <span className="sm:hidden text-[30px]">
-                            <BsFillBriefcaseFill />
+                                <JobIcon className='w-6' />
                             </span>
                             <span className="hidden sm:inline">
-                              Proyectos
+                                Proyectos
                             </span>
                         </a>
                     </li>
-                    <li className='text-[30px] sm:text-[20px]'>
-                    <BtnDarkLigth />
-
-                    </li>
+                    {/* <li>
+                        <a
+                            href="#contacto"
+                            className={activeSection === 'contacto' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
+                        >
+                            <span className="sm:hidden text-[30px]">
+                                <HomeIcon className='w-6' />
+                            </span>
+                            <span className="hidden sm:inline">
+                                Contáctame
+                            </span>
+                        </a>
+                    </li> */}
                 </ul>
-              
             </div>
-        </nav >
+        </nav>
     );
 }
 
