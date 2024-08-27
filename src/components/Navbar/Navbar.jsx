@@ -33,14 +33,14 @@ const Navbar = () => {
     return (
         <nav className=" animate-rebound sm:sticky sm:top-0 z-50 fixed bottom-0 left-0 right-0">
             <div className="flex justify-center gap-2 pt-3">
-                <ul className="flex justify-center items-center gap-10 sm:gap-6 bg-[#26282C] text-[#B8BCB7] w-full sm:w-[400px] sm:rounded-full h-[50px] sm:h-[55px]">
+                <ul className="flex justify-around  items-center sm:justify-center sm:items-center gap-10 sm:gap-6 bg-[#26282C] text-[#B8BCB7] w-full sm:w-[400px] sm:rounded-full h-[50px] sm:h-[55px]">
                     <li>
                         <a
                             href="#inicio"
                             className={activeSection === 'inicio' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
                             <span className="sm:hidden text-[30px]">
-                                <HomeIcon className='w-6' />
+                                <HomeIcon className='w-8' />
                             </span>
                             <span className="hidden sm:inline">
                                 Inicio
@@ -53,7 +53,7 @@ const Navbar = () => {
                             className={activeSection === 'experiencia' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
                             <span className="sm:hidden text-[30px]">
-                                <ExpIcon className='w-6' />
+                                <ExpIcon className='w-8' />
                             </span>
                             <span className="hidden sm:inline">
                                 Experiencia
@@ -66,7 +66,7 @@ const Navbar = () => {
                             className={activeSection === 'proyectos' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
                         >
                             <span className="sm:hidden text-[30px]">
-                                <JobIcon className='w-6' />
+                                <JobIcon className='w-8' />
                             </span>
                             <span className="hidden sm:inline">
                                 Proyectos
