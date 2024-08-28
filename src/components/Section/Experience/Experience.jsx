@@ -8,7 +8,7 @@ const experiences = [
     title: 'Frontend',
     date: 'Enero 2024 - Actualmente',
     description: 'Tecnologías Informáticas ROOTS',
-    link: "window.location.href=https://drive.google.com/uc?export=download&id=13z0LYWZCu0Jz_IPSYVJeQiKi8El4AUId",
+    link: "window.location.href=https://drive.google.com/uc?export=download&id=1AkMO5YyUOx9Ra7q7pd7OdF7rw3kStFtv",
   },
   {
     title: 'Freelancer',
