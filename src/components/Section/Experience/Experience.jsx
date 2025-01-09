@@ -8,7 +8,7 @@ const experiences = [
     title: 'Frontend',
     date: 'Enero 2024 - Actualmente',
     description: 'Tecnologías Informáticas ROOTS',
-    link: "window.location.href=https://drive.google.com/uc?export=download&id=1AkMO5YyUOx9Ra7q7pd7OdF7rw3kStFtv",
+    link: "https://drive.google.com/uc?export=download&id=1AkMO5YyUOx9Ra7q7pd7OdF7rw3kStFtv",
   },
   {
     title: 'Freelancer',
@@ -23,9 +23,9 @@ const Experience = () => {
     return (
         <div 
         id="experience-section"
-        className={`transition-opacity duration-500  ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`transition-opacity duration-500   ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-            <h1 className=" text-[45px] sm:text-[50px] font-semibold  text-center my-[40px]   text-white text-opacity-55 sm:pt-20 ">Experiencia</h1>
+            <h1 className="text-[45px] sm:text-[50px] font-semibold text-center my-[40px] sm:pt-5 text-white  ">Experiencia</h1>
             <Timeline experiences={experiences}/>
             
         </div>

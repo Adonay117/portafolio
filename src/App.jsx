@@ -1,27 +1,30 @@
+import Layout from './components/Layout/Layout';
+import Experience from './components/Section/Experience/Experience';
+import Home from './components/Section/Home/Home';
+import School from './components/Section/School/School';
+import Work from './components/Section/Work/Work';
+import Contact from './components/Section/Contact/Contact';
 
-import Navbar from './components/Navbar/Navbar'
-import Experience from './components/Section/Experience/Experience'
-import Home from './components/Section/Home/Home'
-import Work from './components/Section/Work/Work'
 function App() {
-
   return (
-    <div className='bg-[#222225] ' id='inicio'>
-      <Navbar />
-      <section id="inicio" className='  lg:h-screen px-5 '> 
-
+    <Layout>
+      <section id="inicio" className='lg:h-screen  '> 
         <Home/>
-       
       </section>
-      <section id="experiencia" className='lg:h-screen  px-5'>
-       <Experience/>
-    
+      <section id="experiencia" className='lg:h-screen lg:pt-20'>
+        <Experience/>
       </section>
-      <section id="proyectos" className='  px-5 py-2'>
-      <Work/>
+      <section id="formacion" className='lg:h-screen lg:pt-20'>
+        <School/>
       </section>
-    </div>
-  )
+      <section id="proyectos" className=' lg:pt-20'>
+        <Work/>
+      </section>
+      <section id="contacto" className='h-screen lg:pt-20'>
+        <Contact/>
+      </section>
+    </Layout>
+  );
 }
 
-export default App
+export default App;

@@ -2,18 +2,10 @@ import { useState } from "react";
 import CardProject from "../../CardProject";
 import Filter from "./Filter";
 import useScrollVisibilitySection from "../../../hook/ScrollSection";
+import Hobby from "../Hobby/Hobby";
 
 const projects = [
-  {
-    title: 'Portafolio',
-    description: 'Un sitio estático donde muestro mi perfil.',
-    prototype: 'Figma',
-    prototypeLink: 'https://www.figma.com/design/E8LIhlIHQe6YtbPKEnztuC/Portafolio-Adonay-Arag%C3%B3n?node-id=0-1&t=AH9fjCK2OliYrarC-1',
-    view: '...',
-    linkView: '#',
-    tags: ['react', 'tailwind', 'vite'],
-    imgProject: 'https://github.com/Adonay117/serverimage/raw/main/porfolio.png',
-  },
+
   {
     title: 'Ecommerce',
     description: 'Es un Ecommerce a la medida usuario final.',
@@ -25,6 +17,16 @@ const projects = [
     imgProject: 'https://github.com/Adonay117/serverimage/raw/main/shoping.png',
   },
   {
+    title: 'Heroes App',
+    description: 'Data de los heroes de DC y Marvel, con la funcionalidad de buscar, filtrar y ver detalles de cada heroe.',
+    prototype: '...',
+    prototypeLink: '.',
+    view: '...',
+    linkView: 'https://herodcmarvel.netlify.app/marvel',
+    tags: ['react', 'vite', 'bootstrap'],
+    imgProject: 'https://github.com/Adonay117/serverimage/raw/main/HeroApp.png',
+  },
+  {
     title: 'Tablero',
     description: 'Reto de FrotendMentor, maquetación.',
     prototype: '...',
@@ -34,16 +36,7 @@ const projects = [
     tags: ['react', 'css', 'maquetación'],
     imgProject: 'https://github.com/Adonay117/serverimage/raw/main/score%20(2).png',
   },
-  {
-    title: 'Piedra, papel y tijera',
-    description: 'Reto FrontendMentor, el famoso juego de piedra, papel y tijera. La funcionalidad es la siguiente cada vez que ganas sumas, puntos, pero si pierde te resta 1 punto.',
-    prototype: '...',
-    prototypeLink: '.',
-    view: '...',
-    linkView: 'https://adonay117.github.io/',
-    tags: ['javascript', 'css'],
-    imgProject: 'https://github.com/Adonay117/serverimage/raw/main/paper.png',
-  },
+
 ];
 
 const tags = ['react', 'tailwind', 'vite', 'api', 'css', 'javascript', 'antd', 'bootstrap', 'maquetación'];
@@ -61,7 +54,7 @@ const Work = () => {
     ? projects.filter(project => selectedTags.every(tag => project.tags.includes(tag)))
     : projects;
 
-  console.log("Filtered Projects:", filteredProjects);
+
 
   const projectVisibility = filteredProjects.map((_, index) =>
     useScrollVisibilitySection(`project-card-${index}`, 200)
@@ -71,7 +64,7 @@ const Work = () => {
     <>
       <h1
         id="work-section"
-        className={`text-[45px] sm:text-[50px] font-semibold text-center mt-[40px] sm:pt-5 text-white text-opacity-55 transition-opacity duration-500 ${isVisibleSection ? 'opacity-100' : 'opacity-0'}`}
+        className={`text-[45px] sm:text-[50px] font-semibold text-center mt-[40px] sm:pt-5 text-white  transition-opacity duration-500 ${isVisibleSection ? 'opacity-100' : 'opacity-0'}`}
       >
         Proyectos
       </h1>
@@ -104,6 +97,8 @@ const Work = () => {
           </p>
         )}
       </div>
+{/* 
+      <Hobby/> */}
     </>
   );
 };

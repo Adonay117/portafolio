@@ -7,10 +7,14 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       colors: {
-        'primary': '#7cb155',
+        'primary': '#2E2482',
         'secondary': '#9999d0',
-        'accent': '#ae7bc2'
+        'accent': '#9B92E7',
+        'background': '#1a1a1a',
       },
       keyframes: {
         slideIn: {
@@ -48,12 +52,17 @@ export default {
             transform: 'scale(1)'
 
           }
-        }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
-        slideIn: 'slideIn 0.6s cubic-bezier(0.68,-0.55,0.27,1.55)', 
-        rebound: 'rebound 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);',
+        slideIn: 'slideIn 1s cubic-bezier(0.68,-0.55,0.27,1.55)', 
+        rebound: 'rebound 1s cubic-bezier(0.68,-0.55,0.27,1.55);',
         opacityIn: 'opacityIn 0.7s ease',
+        marquee: 'marquee 30s linear infinite',
       }
 
     },

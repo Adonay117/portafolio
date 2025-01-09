@@ -1,6 +1,6 @@
 const CardProject = ({ isview, isprototype, linkView, linkPrototype, imgProject = 'no hay imagen', className, id, description = 'no hay descripción', tags, titleProject = 'no hay titulo', isVisible }) => {
     return (
-        <div id={id} className={`group bg-[#26282C] shadow-lg rounded-lg overflow-hidden w-[350px] max-w-sm transition-all ease-in-out duration-500 relative ${className} ${isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
+        <div id={id} className={`group bg-[#26282C] hover:scale-105 shadow-lg rounded-lg overflow-hidden w-[350px] max-w-sm transition-all ease-in-out duration-500 relative ${className} ${isVisible ? 'scale-100 opacity-100' : 'scale-80 opacity-0'}`}>
           
             {imgProject === 'no hay imagen' || imgProject === '' ? (
                 <div className='bg-white opacity-10 flex items-center justify-center h-48'>
@@ -28,7 +28,10 @@ const CardProject = ({ isview, isprototype, linkView, linkPrototype, imgProject 
                         </a>    
                     )}
                     {isview && (
-                        <a href={linkView} className='absolute bottom-2 text-gray-300'>
+                        <a 
+                        href={linkView}
+                        target="_blank" 
+                         className='absolute bottom-2 text-gray-300'>
                             <button className='bg-gray-700/90 px-3 py-1 rounded-md'>
                                 Demo
                             </button>

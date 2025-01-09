@@ -3,93 +3,77 @@ import BtnDarkLigth from "../ModeDark/BtnDarkLight";
 import HomeIcon from '../Icons/HomeIcon';
 import JobIcon from '../Icons/JobIcon';
 import ExpIcon from '../Icons/ExpIcon';
+import School from '../Icons/School';
 
 const Navbar = () => {
-    const [activeSection, setActiveSection] = useState('inicio');
+    const [activeSection, setActiveSection] = useState('');
 
     const handleScroll = () => {
         const sections = document.querySelectorAll('section');
-        let currentSection = 'inicio'; // Cambia a 'inicio' por defecto
-
+        let currentSection = '';
+    
         sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 100; // Ajusta el valor para mejorar la detección
+            const sectionTop = section.offsetTop ;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+    
+            if (window.scrollY + window.innerHeight / 2 >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                 currentSection = section.getAttribute('id');
             }
         });
-
+    
         setActiveSection(currentSection);
     };
+    
 
     useEffect(() => {
-        handleScroll(); // Verifica la sección activa al cargar la página
+        handleScroll(); 
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
+    const handleInicioClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
         <nav className=" animate-rebound sm:sticky sm:top-0 z-50 fixed bottom-0 left-0 right-0">
             <div className="flex justify-center gap-2 pt-3">
-                <ul className="flex justify-around  items-center sm:justify-center sm:items-center gap-10 sm:gap-6 bg-[#26282C] text-[#B8BCB7] w-full sm:w-[400px] sm:rounded-full h-[50px] sm:h-[55px]">
-                    <li>
-                        <a
-                            href="#inicio"
-                            className={activeSection === 'inicio' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
-                        >
-                            <span className="sm:hidden text-[30px]">
-                                <HomeIcon className='w-8' />
-                            </span>
-                            <span className="hidden sm:inline">
-                                Inicio
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#experiencia"
-                            className={activeSection === 'experiencia' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
-                        >
-                            <span className="sm:hidden text-[30px]">
-                                <ExpIcon className='w-8' />
-                            </span>
-                            <span className="hidden sm:inline">
-                                Experiencia
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#proyectos"
-                            className={activeSection === 'proyectos' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
-                        >
-                            <span className="sm:hidden text-[30px]">
-                                <JobIcon className='w-8' />
-                            </span>
-                            <span className="hidden sm:inline">
-                                Proyectos
-                            </span>
-                        </a>
-                    </li>
-                    {/* <li>
-                        <a
-                            href="#contacto"
-                            className={activeSection === 'contacto' ? 'text-white sm:bg-gradient-to-r from-indigo-500 to-violet-500 py-2 px-3 rounded-full' : 'py-2 px-3'}
-                        >
-                            <span className="sm:hidden text-[30px]">
-                                <HomeIcon className='w-6' />
-                            </span>
-                            <span className="hidden sm:inline">
-                                Contáctame
-                            </span>
-                        </a>
-                    </li> */}
-                </ul>
+                <ul className="flex justify-around  items-center sm:justify-center sm:items-center gap-10 sm:gap-6 bg-[#26282C] text-[#B8BCB7] w-full sm:w-[650px] sm:rounded-full h-14  lg:h-[70px]">
+                    
+                    {
+                        [
+                         ['Inicio', '#inicio', <HomeIcon className='w-8'/>, 'inicio'],
+                         ['Experiencia', '#experiencia', <ExpIcon className='w-8' />, 'experiencia'],
+                         ['Formación', '#formacion', <School className='w-8' />, 'formacion'], 
+                         ['Proyectos', '#proyectos', <JobIcon className='w-8' />, 'proyectos'], 
+                         ['Contacto', '#contacto', <HomeIcon className='w-8' />, 'contacto']
+                        ].map(([title, path, icon, active], index) => (
+                            <li
+                            key={index}>
+                            <a
+                                href={path}
+                                onClick={title === 'Inicio' ? handleInicioClick : null}
+                                className={activeSection === active  ? 'text-white lg:bg-primary py-3 px-4 rounded-full' : 'py-3 px-4'}
+                            >
+                                <span className="sm:hidden text-[30px]">
+                                {icon}
+                                </span>
+                                <span className="hidden sm:inline">
+                                    {title}
+                                </span>
+                            </a>
+                        </li>
+                        )
+                        )}
+                       </ul>
             </div>
         </nav>
     );
 }
 
 export default Navbar;
+
+

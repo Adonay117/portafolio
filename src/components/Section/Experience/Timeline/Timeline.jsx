@@ -30,7 +30,7 @@ const Timeline = ({ experiences }) => {
               <a
                 href={exp.link}
                 download='AdonayAragonCv.pdf'
-                className="inline-flex animate-bounce hover:animate-none items-center px-4 py-2 text-sm font-medium  focus:z-10 focus:ring-4 focus:outline-none bg-gray-800  border-gray-600 text hover:text-white bg-gradient-to-l from-indigo-500  to-violet-500 focus:ring-white text-white"
+                className="inline-flex hover:animate-none items-center px-4 py-2 text-sm font-medium  focus:z-10 focus:ring-4 focus:outline-none bg-primary text-white rounded-lg"
               >
                 Descargar CV
                 <svg
