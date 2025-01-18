@@ -18,7 +18,7 @@ const Home = () => {
                     <img
        
                     src={Profile} alt='profile'  className="z-10 relative drop-shadow-2xl saturate-0 ease-out delay-75" />
-                    <span className=' flex gap-3 justify-center my-2 transition-colors ease-in-out'>
+                    <span className=' flex gap-3 justify-center  my-2 transition-colors ease-in-out'>
                     <Gitlab 
                      className=' w-10 text-gray-400  hover:text-white '
                      to='https://gitlab.com/Adonay117'/>
@@ -34,7 +34,7 @@ const Home = () => {
              <div>
                 
              <p 
-                className=' animate-slideIn text-[30px] sm:text-[55px] text-center sm:text-start   text-white text-opacity-90 mt-10 lg:mt-0'>
+                className=' animate-slideIn text-[30px] sm:text-[55px] text-center lg:text-start   text-white text-opacity-90 mt-10 lg:mt-0'>
                     <span className='font-semibold text-accent'> Adonay Aragón </span>
                     <br /> desarrollador <span className=' font-semibold text-white/70'>Frontend</span>
                 </p>

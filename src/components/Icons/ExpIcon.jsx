@@ -2,10 +2,11 @@
 
 const ExpIcon = ({className}) => {
     return (
-        <svg  xmlns="http://www.w3.org/2000/svg"    viewBox="0 0 24 24"  fill="currentColor"  
-        className={className}>
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z" /></svg>
+        <svg  
+        xmlns="http://www.w3.org/2000/svg"  
+         viewBox="0 0 24 24"  
+         fill="currentColor"  
+         className={className}><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 2a3 3 0 0 1 3 3v1h2a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3h2v-1a3 3 0 0 1 3 -3zm0 2h-4a1 1 0 0 0 -1 1v1h6v-1a1 1 0 0 0 -1 -1" /></svg>
     )
 }
 

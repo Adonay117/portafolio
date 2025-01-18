@@ -20,7 +20,7 @@ function App() {
       <section id="proyectos" className=' lg:pt-20'>
         <Work/>
       </section>
-      <section id="contacto" className='h-screen lg:pt-20'>
+      <section id="contacto" className='lg:h-screen lg:pt-20'>
         <Contact/>
       </section>
     </Layout>

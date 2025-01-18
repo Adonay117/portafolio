@@ -4,6 +4,7 @@ import HomeIcon from '../Icons/HomeIcon';
 import JobIcon from '../Icons/JobIcon';
 import ExpIcon from '../Icons/ExpIcon';
 import School from '../Icons/School';
+import ContactIcon from '../Icons/ContactIcon';
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('');
@@ -49,7 +50,7 @@ const Navbar = () => {
                          ['Experiencia', '#experiencia', <ExpIcon className='w-8' />, 'experiencia'],
                          ['Formación', '#formacion', <School className='w-8' />, 'formacion'], 
                          ['Proyectos', '#proyectos', <JobIcon className='w-8' />, 'proyectos'], 
-                         ['Contacto', '#contacto', <HomeIcon className='w-8' />, 'contacto']
+                         ['Contacto', '#contacto', <ContactIcon className='w-8' />, 'contacto']
                         ].map(([title, path, icon, active], index) => (
                             <li
                             key={index}>
